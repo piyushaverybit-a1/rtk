@@ -3,7 +3,7 @@
 :root {
   --bg-dark: #0f172a;
   --bg-card: #1e293b;
-  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --accent-gradient: linear-gradient(135deg, #adadad 0%, #8b5cf6 50%, #d946ef 100%);
   --brand-color: #818cf8;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
@@ -39,7 +39,6 @@ body {
   padding: 2rem 0;
 }
 
-/* ================= MODERN NAVBAR ================= */
 .custom-navbar {
   background: var(--glass-bg);
   backdrop-filter: blur(14px);
@@ -71,14 +70,14 @@ body {
 .brand-badge {
   background: var(--accent-gradient);
   color: #ffffff;
-  padding: 0.28rem 0.65rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  padding: 0.58rem 0.85rem;
+  border-radius: 100%;
+  box-shadow: 0 4px 14px rgba(8, 12, 233, 0.4);
   font-size: 1.1rem;
 }
 
 .brand-text {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  background: linear-gradient(135deg, #424242 0%, #cbd5e1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -87,7 +86,7 @@ body {
   color: var(--text-muted) !important;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.5rem 1rem !important;
+  padding: 0.55rem 1.2rem !important;
   border-radius: 8px;
   transition: all 0.25s ease;
   position: relative;
@@ -142,7 +141,6 @@ body {
   width: 260px;
 }
 
-/* ================= MODERN FOOTER ================= */
 .custom-footer {
   background: #090d16;
   border-top: 1px solid var(--border-color);

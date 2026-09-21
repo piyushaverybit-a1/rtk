@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-inner">
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
           <div className="footer-brand">
-            <span className="brand-badge" style={{ fontSize: "0.85rem", padding: "0.2rem 0.5rem" }}>
+            <span className="brand-badge" style={{ fontSize: "0.95rem", padding: "0.28rem 0.95rem" }}>
               RTK
             </span>
             <span>Redux Toolkit App</span>
@@ -19,15 +19,6 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/read">All Posts</Link>
-            </li>
-            <li>
-              <a
-                href="https://redux-toolkit.js.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                RTK Docs
-              </a>
             </li>
           </ul>
         </div>

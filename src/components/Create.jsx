@@ -22,7 +22,8 @@ const Create = () => {
 
   return (
     <div>
-      <form className="w-50 mx-auto my-5" onSubmit={handleSubmit}>
+       <h2 className="text-center my-3">Create Users</h2>
+      <form className="w-50 mx-auto my-5" style={{ backgroundColor:"#2d2b2b",padding:"50px",borderRadius:"20px" , height:"auto"}}  onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
@@ -30,6 +31,7 @@ const Create = () => {
             name="name"
             className="form-control"
             onChange={getUserData}
+            style={{ backgroundColor:"#adadad" }}
           />
         </div>
         <div className="mb-3">
@@ -39,15 +41,17 @@ const Create = () => {
             name="email"
             className="form-control"
             onChange={getUserData}
+            style={{ backgroundColor:"#adadad" }}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" >
           <label className="form-label">Age</label>
           <input
             type="text"
             name="age"
             className="form-control"
             onChange={getUserData}
+            style={{ backgroundColor:"#adadad" }}
           />
         </div>
         <div className="mb-3">

@@ -7,13 +7,10 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid">
-        {/* Clickable Brand / Logo navigating to "/" */}
-        <Link to="/" className="navbar-brand nav-brand-logo">
+        <Link to="/" className="navbar-brand nav-brand-logo me-lg-4">
           <span className="brand-badge">RTK</span>
-          <span className="brand-text">Portal</span>
         </Link>
 
-        {/* Mobile Toggle Button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -27,9 +24,8 @@ const Navbar = () => {
           <span className="navbar-toggler-icon" style={{ filter: 'invert(1)' }}></span>
         </button>
 
-        {/* Links & Search Input */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-1">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 gap-3">
             <li className="nav-item">
               <Link
                 className={`nav-link custom-nav-link ${
@@ -52,7 +48,6 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Compact Modern Search Field */}
           <div className="search-wrapper my-2 my-lg-0">
             <svg
               className="search-icon"
