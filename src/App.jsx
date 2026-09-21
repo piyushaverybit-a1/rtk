@@ -12,6 +12,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route exact path="/" element={<Create />} />
+            <Route path="/:id" element={<Create />} />
             <Route exact path="/read" element={<Read />} />
           </Routes>
         </main>

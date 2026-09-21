@@ -3,19 +3,20 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const createUser = createAsyncThunk(
   "createUser",
   async (data, { rejectWithValue }) => {
-    console.log("data", data);
-    const response = await fetch(
-      "https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
-
     try {
+      console.log("data", data);
+      const response = await fetch(
+        "https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+
       const result = await response.json();
       return result;
     } catch (error) {
@@ -28,11 +29,12 @@ export const createUser = createAsyncThunk(
 export const showUser = createAsyncThunk(
   "showUser",
   async (args, { rejectWithValue }) => {
-    const response = await fetch(
-      "https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds"
-    );
-
     try {
+      const response = await fetch(
+        "https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds"
+      );
+
+
       const result = await response.json();
       return result;
     } catch (error) {
@@ -44,18 +46,47 @@ export const showUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   "deleteUser",
   async (id, { rejectWithValue }) => {
-    const response = await fetch(
-      `https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
-
     try {
+      const response = await fetch(
+        `https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+
       const result = await response.json();
       return result;
     } catch (error) {
       return rejectWithValue(error);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  "updateUser",
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `https://6aaf7d70ee9c55c910bf4cb9.mockapi.io/cruds/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to update user");
+      }
+
+      const result = await response.json();
+
+      return result;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -104,8 +135,30 @@ export const userDetail = createSlice({
       .addCase(deleteUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
-  },
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.loading = true;
+      })
+
+    .addCase(updateUser.fulfilled, (state, action) => {
+      state.loading = false;
+
+      const updatedUser = action.payload;
+
+      const index = state.users.findIndex(
+        (user) => user.id === updatedUser.id
+      );
+
+      if (index !== -1) {
+        state.users[index] = updatedUser;
+      }
+    })
+
+    .addCase(updateUser.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    })
+},
 });
 export default userDetail.reducer;
 
