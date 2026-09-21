@@ -26,7 +26,7 @@ const Read = () => {
       <div className="container d-flex flex-wrap justify-content-center gap-3 my-4">
         {users &&
           users.map((ele) => (
-            <div key={ele.id} className="card" style={{ width: "18rem" ,backgroundColor:"#2d2b2b" ,color:"white",padding: "50px", borderRadius: "20px", height: "auto" }}>
+            <div key={ele.id} className="card" style={{ width: "18rem" ,backgroundColor:"#2d2b2b" ,color:"white", padding:"30px 20px"}}>
               <div className="card-body">
                 <h5 className="card-title">{ele.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{ele.email}</h6>
